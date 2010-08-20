@@ -1,0 +1,70 @@
+/* 
+Colorset:
+#D92938
+#731D20
+#E5B95A
+#BC7F2C
+#F2F2F2
+*/
+
+body {
+	background-color: #BC7F2C;
+	font-family: 'Crimson Text', arial, serif;
+	font-size: 16px;
+}
+#container {
+	margin: 0 auto;
+	width: 600px;
+	height: 600px;
+	position: relative;
+}
+
+header {
+	font-family: 'IM Fell English SC', arial, serif;
+	font-size: 72px;
+}
+.bottom {
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 1px solid #E5B95A;
+	width: 150px;
+	overflow:hidden;
+	position: absolute;
+	bottom: 0;
+}
+.bottom header {
+	font-size: 20px;
+	text-align: center;
+}
+
+footer {
+	
+}
+
+#addNewLink {
+	height: 25px;
+	left: 0;
+}
+
+#trashBin {
+	right: 0;
+}
+
+.link {
+	margin: 10px;
+	width: 80%;
+}
+
+.link.note {
+	height: 100px;
+}
+[contenteditable] {
+  outline: 1px dotted #aaa;
+}
+[contenteditable]:hover {
+  outline: 1px dotted #ccc;
+}
