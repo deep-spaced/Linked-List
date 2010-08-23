@@ -23,28 +23,55 @@ header {
 	font-family: 'IM Fell English SC', arial, serif;
 	font-size: 72px;
 }
-.bottom {
+section {
+	display: block;
+}
+#linkList {
+	/*
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
 	-moz-border-radius-topleft: 10px;
 	-moz-border-radius-topright: 10px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	*/
 	border: 1px solid #E5B95A;
-	width: 150px;
-	overflow:hidden;
-	position: absolute;
-	bottom: 0;
+	margin-top: 50px;
 }
-.bottom header {
+#addNewLink {
+	background-color: red;
+	height: 25px;
+	position: absolute;
+	width: 100%;
+	display: block;
+	overflow:hidden;
+	z-index: 5;
+}
+#addNewLink header {
 	font-size: 20px;
 	text-align: center;
+}
+
+#linkList section {
+	border-top: 1px solid red;
+	display: block;
+}
+#linkList section:first-child {
+	border-top: none;
+}
+#linkList .note {
+	display: none;
 }
 
 footer {
 	
 }
 
+#hidden .btnDelete {
+	display: none;
+}
+
+/*
 #addNewLink {
 	height: 25px;
 	left: 0;
@@ -53,6 +80,7 @@ footer {
 #trashBin {
 	right: 0;
 }
+*/
 
 .link {
 	margin: 10px;
