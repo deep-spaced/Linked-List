@@ -15,8 +15,6 @@ body {
 #container {
 	margin: 0 auto;
 	width: 600px;
-	height: 600px;
-	position: relative;
 }
 
 header {
@@ -38,16 +36,19 @@ section {
 	border: 1px solid #E5B95A;
 	margin-top: 50px;
 }
-#addNewLink {
+#addNewLink, #trashBin {
 	background-color: red;
 	height: 25px;
 	position: absolute;
-	width: 100%;
+	width: 600px;
 	display: block;
 	overflow:hidden;
 	z-index: 5;
 }
-#addNewLink header {
+#trashBin {
+	bottom: 0;
+}
+#addNewLink header, #trashBin header {
 	font-size: 20px;
 	text-align: center;
 }
@@ -59,15 +60,12 @@ section {
 #linkList section:first-child {
 	border-top: none;
 }
-#linkList .note {
+#linkList .note, #trashBin .note {
 	display: none;
 }
 
-footer {
-	
-}
 
-#hidden .btnDelete {
+.hidden .btnDelete {
 	display: none;
 }
 

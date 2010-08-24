@@ -12,7 +12,7 @@ $(document).ready(function() {
 		$("#result").html(localStorage.getItem('name'));
 	});
 
-	$(".link").click(function(e) { e.target.focus(); e.target.select(); });
+	$("#addNewLink .link").click(function(e) { $(this).select(); });
 
 	$("#addNewLink").hover(
 		function() {
@@ -21,9 +21,35 @@ $(document).ready(function() {
 		function() {
 			$(this).animate({"height": "25px"}, "fast");
 		}
-
 	);
-	
-	
+
+	$("#linkList .note").hover(
+		function() {
+			$(this).css("display", "block");
+		},
+		function() {
+			$(this).css("display", "none");
+		}
+	);
+
+	var open = false;
+	$("#trashTop").click(function() {
+		if(open) {
+			$("#trashBin").animate({"height": "25px"});
+			open = false;
+		} else {
+			$("#trashBin").animate({"height": "250px"});
+			open = true;
+		}
+	});
+
+	$(".btnAdd").bind("click", addLink);
 
 });
+
+function addLink() {
+	// Clone the Add New area:
+	var link = $("#addNewLink").clone().removeAttr("id").removeAttr("style");
+	link.children("header,.btnAdd").remove().children(".link,.note").removeAttr("contenteditable").removeAttr("class");
+	$("#linkList").append(link);
+}
