@@ -1,42 +1,45 @@
+<!-->
+ microNotes
+ Author: Andrew Anderson & Steve Meisner
+ 
+ A quick and easy way to store notes, links, thoughts, and anything else that can be typed in a text box.
+-->
+
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8">
 	<title>microNotes</title>
-	<meta name="author" content="Andrew Anderson">
-	<link rel="stylesheet" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
-	<!--
+	<meta name="author" content="Andrew Anderson and Steve Meisner">
+	<meta name="description" content="A quick and easy way to store notes, links, thoughts, and anything else that can be typed in a text box.">
+	<link rel="stylesheet" href="css/style.css">
+	
 	<script type="text/javascript" src="http://use.typekit.com/gns4sdl.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	-->
+
 	<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js"></script>
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
 
 </head>
 <body>
 	<div id="container">
 		<header>microNotes</header>
 		
-		<p>Just a quick place to drop notes, links, and anything that you might need later.</p>
+		<p>A quick and easy way to store notes, links, thoughts, and anything else that can be typed in a text box. Notes can be moved to the trash which is kept trim at a max number of ten items.</p>
 
 		<div id="main">
 			<section id="addNewLink">
 			<header class="top">Add New</header>
 				<div contenteditable="true" class="note"></div>
-
 				<button class="btn add">Add</button>
 				<button class="btn delete">Del</button>
+			</section>
 
-			</section>
-			<section id="linkList">
-			</section>
+			<section id="linkList"></section>
 
 			<section id="trashBin">
 				<header class="top">Trash</header>
-				<div id="trashList">
-					
-				</div>
+				<div id="trashList"></div>
 			</section>
 
 
@@ -44,8 +47,8 @@
 		
 		
 	</div> <!-- end of #container -->
-<footer class="tk-daniel">
-		<p>a <a href="http://www.substratalcode.com">substratal code</a> project. </p>
-		</footer>
+	<footer>
+		<p>a <a href="http://www.substratalcode.com">substratal code</a> and <a href="http://http://www.wayshortofheaven.com/">way short of heaven</a> project.</p>
+	</footer>
 </body>
 </html>
