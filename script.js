@@ -1,55 +1,103 @@
 $(document).ready(function() {
-
-	$("#btnStore").click(function() {
-
-		try {
-			localStorage.setItem("name", "Hello World!"); //saves to the database, "key", "value"
-		} catch (e) {
-			if (e == QUOTA_EXCEEDED_ERR) {
-				alert('Quota exceeded!'); //data wasn’t successfully saved due to quota exceed so throw an error
-			}
-		}
-		$("#result").html(localStorage.getItem('name'));
-	});
+	loadNotes();
 
 	$("#addNewLink .link").click(function(e) { $(this).select(); });
 
-	$("#addNewLink").hover(
-		function() {
-			$(this).animate({"height": "250px"}, "fast");
-		},
-		function() {
-			$(this).animate({"height": "25px"}, "fast");
-		}
-	);
-
-	$("#linkList .note").hover(
-		function() {
-			$(this).css("display", "block");
-		},
-		function() {
-			$(this).css("display", "none");
-		}
-	);
-
-	var open = false;
-	$("#trashTop").click(function() {
-		if(open) {
-			$("#trashBin").animate({"height": "25px"});
-			open = false;
+	$(".top").click(function() {
+		var parent = $(this).parent();
+		if(parent.css('height') == "175px") {
+			parent.animate({"height": "20px"});
 		} else {
-			$("#trashBin").animate({"height": "250px"});
-			open = true;
+			parent.animate({"height": "175px"});
 		}
 	});
 
-	$(".btnAdd").bind("click", addLink);
+	$(".add").click(function() { addNote();});
+	$(".delete").live("click", deleteNote);
 
 });
 
-function addLink() {
-	// Clone the Add New area:
-	var link = $("#addNewLink").clone().removeAttr("id").removeAttr("style");
-	link.children("header,.btnAdd").remove().children(".link,.note").removeAttr("contenteditable").removeAttr("class");
-	$("#linkList").append(link);
+$(window).unload(function() {
+	saveNotes();
+});
+
+
+function loadNotes() {
+	var numNotes = localStorage.getItem("microNotes.notes.size");
+	for(i=0; i<numNotes; i++) {
+		addNote( localStorage.getItem("microNotes.notes."+i) );
+	}
+
+	var numTrash = localStorage.getItem("microNotes.trash.size");
+	for(i=0; i<numTrash; i++) {
+		addNote( localStorage.getItem("microNotes.trash."+i), true );
+	}
+
+	console.log("Number of notes restored: "+numNotes);
+	console.log("Number of trash restored: "+numTrash);
 }
+
+function saveNotes() {
+	// Save the good notes:
+	var numNotes = 0;
+	$("#linkList").children().each(function (i) {
+		localStorage.setItem("microNotes.notes."+i, $(this).children(".note").html());
+		numNotes = i;
+
+		console.log("Saved a note! note = "+localStorage.getItem("microNotes.notes."+i));
+	});
+	localStorate.setItem("microNotes.notes.size", numNotes);
+
+	var numTrash = 0;
+	$("#trashList").children().each(function (i) {
+		localStorage.setItem("microNotes.trash."+i, $(this).children(".note").html());
+		numTrash = i;
+
+		console.log("Saved a note! trash = "+localStorage.getItem("microNotes.trash."+i));
+	});
+	localStorate.setItem("microNotes.trash.size", numTrash);
+
+	console.log("Number of notes saved: "+localStorate.getItem("microNotes.notes.size"));
+	console.log("Number of trash saved: "+localStorate.getItem("microNotes.trash.size"));
+}
+
+function addNote(text, trash) {
+	if($("#addNewLink .note").text() == "" && text == null) return false;
+	var note = $("#addNewLink").clone().removeAttr("id").removeAttr("style");
+	note.children("header,.add").remove();
+
+	if(text == null)
+		text = convertUrls( $("#addNewLink .note").text() );
+	
+	note.children(".note").removeAttr("contenteditable").html( text );
+
+	if(!trash)
+		$("#linkList").prepend(note);
+	else
+		$("#trashList").prepend(note);
+
+	$("#addNewLink .note").text("");
+	$("#addNewLink .top").click();
+}
+
+function deleteNote(e) {
+	// Move the section from the list to the trash:
+	var section = $(e.target).closest("section");
+	localStorage.removeItem("microNotes.notes."+section.attr("rel"));
+	section.prependTo("#trashList");
+	// Check for more than 10:
+	if( $("#trashList").children().size() > 3) {
+		$("#trashList").children("section:last").remove();
+		console.log("Overage!");
+	}
+}
+
+function convertUrls(text) {
+	var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	return text.replace(exp,"<a href='$1'>$1</a>"); 
+}
+
+function flashRed(target) {
+	$()
+}
+

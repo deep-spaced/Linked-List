@@ -5,87 +5,43 @@
 	<title>Linked List</title>
 	<meta name="author" content="Andrew Anderson">
 	<link rel="stylesheet" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://use.typekit.com/gns4sdl.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js"></script>
 	<script src="script.js"></script>
 
 </head>
 <body>
 	<div id="container">
-		<header>
-			Linked List
-		</header>
+		<header>microNotes</header>
 		
+			<p>Just a quick place to drop notes, links, and anything that you might need later.</p>
 		<div id="main">
-			<p>Ever forget that one link that you ran across on twitter? Here's the place to store it. Just type in the link, a title (if you want), and a note to save it for later!</p>
-		
-  		<section id="addNewLink">
-  			<header>Add New</header>
-  			<div class="hidden">
-  				<p class="link" contenteditable="true">URL</p>
-  				<div contenteditable="true" class="link note">Note...</div>
-  				<button class="btnAdd">Add</button>
-  				<button class="btnDelete">Delete</button>
-  			</div>
-  		</section>
+			<section id="addNewLink">
+			<header class="top">Add New</header>
+				<div contenteditable="true" class="note"></div>
 
-  		<section id="linkList">
-  			<section>
-  				<div id="hidden">
-  					<p class="link"><a href="http://google.com">http://google.com</a></p>
-  					<div class="link note">The world's greatest search engine.</div>
-  				</div>
-  			</section>
-  			<section>
-  				<div id="hidden">
-  					<p class="link"><a href="http://google.com">http://osnews.com</a></p>
-  					<div class="link note">The world's greatest search engine.</div>
-  				</div>
-  			</section>
-  			<section>
-  				<div id="hidden">
-  					<p class="link"><a href="http://google.com">http://arstechnica.com</a></p>
-  					<div class="link note">The world's greatest search engine.</div>
-  				</div>
-  			</section>
-  			<section>
-  				<div id="hidden">
-  					<p class="link"><a href="http://google.com">http://cnn.com</a></p>
-  					<div class="link note">The world's greatest search engine.</div>
-  				</div>
-  			</section>
-  		</section>
+				<button class="btn add">Add</button>
+				<button class="btn delete">Del</button>
 
-  		<section id="trashBin" class="bottom">
-  			<header id="trashTop">Trash</header>
-        <section>
-          <div id="hidden">
-            <p class="link"><a href="http://google.com">http://cnn.com</a></p>
-            <div class="link note">The world's greatest search engine.</div>
-          </div>
-        </section>
-        <section>
-          <div id="hidden">
-            <p class="link"><a href="http://google.com">http://cnn.com</a></p>
-            <div class="link note">The world's greatest search engine.</div>
-          </div>
-        </section>
-        <section>
-          <div id="hidden">
-            <p class="link"><a href="http://google.com">http://cnn.com</a></p>
-            <div class="link note">The world's greatest search engine.</div>
-          </div>
-        </section>
-  		</section>
+			</section>
+			<section id="linkList">
+			</section>
+
+			<section id="trashBin" class="bottom">
+				<header class="top">Trash</header>
+				<div id="trashList">
+					
+				</div>
+			</section>
 
 
 		</div>
 		
-		<footer>
-
-		</footer>
+		
 	</div> <!-- end of #container -->
-
+<footer class="tk-daniel">
+		<p>a <a href="http://www.substratalcode.com">substratal code</a> project. </p>
+		</footer>
 </body>
 </html>

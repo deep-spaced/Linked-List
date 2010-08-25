@@ -1,96 +1,115 @@
-/* 
-Colorset:
-#D92938
-#731D20
-#E5B95A
-#BC7F2C
-#F2F2F2
-*/
-
 body {
-	background-color: #BC7F2C;
-	font-family: 'Crimson Text', arial, serif;
 	font-size: 16px;
+	background-color: #F2EFE9;
+}
+a:link {
+	color: gray;
+
 }
 #container {
-	margin: 0 auto;
+	margin: 0 auto 50px;
+	padding: 0 10px;
 	width: 600px;
+}
+
+#main {
+	-moz-box-shadow: 0 0 5px #91BDD9;
+	-webkit-box-shadow: 0 0 5px #91BDD9;
 }
 
 header {
-	font-family: 'IM Fell English SC', arial, serif;
 	font-size: 72px;
-}
-section {
-	display: block;
-}
-#linkList {
-	/*
-	-webkit-border-top-left-radius: 10px;
-	-webkit-border-top-right-radius: 10px;
-	-moz-border-radius-topleft: 10px;
-	-moz-border-radius-topright: 10px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	*/
-	border: 1px solid #E5B95A;
-	margin-top: 50px;
-}
-#addNewLink, #trashBin {
-	background-color: red;
-	height: 25px;
-	position: absolute;
-	width: 600px;
-	display: block;
-	overflow:hidden;
-	z-index: 5;
-}
-#trashBin {
-	bottom: 0;
-}
-#addNewLink header, #trashBin header {
-	font-size: 20px;
-	text-align: center;
+	text-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1)
 }
 
-#linkList section {
-	border-top: 1px solid red;
+#addNewLink, #trashBin {
+	background-color: #D0C8B9;
+	height: 20px;
+	overflow:hidden;
+	z-index: 5;
+	border: 1px solid #CCC;
+	margin: 5px;
+	padding: 5px 10px;
+
+	border: 1px solid #aaa;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#addNewLink:hover, #trashBin:hover {
+	background-color: #F0E3CF;
+}
+#trashBin {
+	position: fixed;
+	width: 577px;
+	bottom: 0;
+	margin: 0;
+}
+#trashList {
+	overflow:auto;
+	height: 150px;
+}
+.top {
+	font-size: 20px;
+	text-align: right;
+	border-bottom: 1px solid #91BDD9;
+	cursor: pointer;
+}
+
+#linkList section, #trashBin section {
+	border-bottom: 1px dashed silver;
 	display: block;
 }
 #linkList section:first-child {
 	border-top: none;
 }
-#linkList .note, #trashBin .note {
+
+.btn {
+	float:right;
+	border: 1px solid #aaa;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 5px;
+	padding: 3px;
+	margin: -35px 2px 2px 2px;
+	width: 40px;
+}
+.delete {
+	background-color: red;
+	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#b3042f), to(#d1344e));
+	gradient(linear, 0% 0%, 0% 100%, from(#b3042f), to(#d1344e));
 	display: none;
 }
-
-
-.hidden .btnDelete {
-	display: none;
+#linkList section:hover .delete {
+	display: block;
+}
+.add {
+	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
+	gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 }
 
-/*
-#addNewLink {
-	height: 25px;
-	left: 0;
-}
 
-#trashBin {
-	right: 0;
-}
-*/
+.note {
+	margin:10px 50px 10px 5px;
 
-.link {
-	margin: 10px;
-	width: 80%;
 }
-
-.link.note {
+#addNewLink .note {
 	height: 100px;
+	overflow: auto;
+}
+.label {
+	color: #888;
 }
 [contenteditable] {
   outline: 1px dotted #aaa;
 }
 [contenteditable]:hover {
   outline: 1px dotted #ccc;
+}
+
+footer {
+	font-size: 16px;
+	position: fixed;
+	left: 5px;
+	bottom: -15px;
 }
