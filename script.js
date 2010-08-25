@@ -9,10 +9,11 @@ $(document).ready(function() {
 			parent.animate({"height": "20px"});
 		} else {
 			parent.animate({"height": "175px"});
+			if(parent.attr("id") == "addNewLink") $("#addNewLink .note").focus();
 		}
 	});
 
-	$(".add").click(function() { addNote();});
+	$(".add").click(function() { addNote(null, "#linkList");});
 	$(".delete").live("click", deleteNote);
 
 });
@@ -25,16 +26,13 @@ $(window).unload(function() {
 function loadNotes() {
 	var numNotes = localStorage.getItem("microNotes.notes.size");
 	for(i=0; i<numNotes; i++) {
-		addNote( localStorage.getItem("microNotes.notes."+i) );
+		addNote( localStorage.getItem("microNotes.notes."+i), "#linkList", true );
 	}
 
 	var numTrash = localStorage.getItem("microNotes.trash.size");
 	for(i=0; i<numTrash; i++) {
-		addNote( localStorage.getItem("microNotes.trash."+i), true );
+		addNote( localStorage.getItem("microNotes.trash."+i), "#trashList", true );
 	}
-
-	console.log("Number of notes restored: "+numNotes);
-	console.log("Number of trash restored: "+numTrash);
 }
 
 function saveNotes() {
@@ -42,26 +40,19 @@ function saveNotes() {
 	var numNotes = 0;
 	$("#linkList").children().each(function (i) {
 		localStorage.setItem("microNotes.notes."+i, $(this).children(".note").html());
-		numNotes = i;
-
-		console.log("Saved a note! note = "+localStorage.getItem("microNotes.notes."+i));
+		numNotes = i+1;
 	});
-	localStorate.setItem("microNotes.notes.size", numNotes);
+	localStorage.setItem("microNotes.notes.size", numNotes);
 
 	var numTrash = 0;
 	$("#trashList").children().each(function (i) {
 		localStorage.setItem("microNotes.trash."+i, $(this).children(".note").html());
-		numTrash = i;
-
-		console.log("Saved a note! trash = "+localStorage.getItem("microNotes.trash."+i));
+		numTrash = i+1;
 	});
-	localStorate.setItem("microNotes.trash.size", numTrash);
-
-	console.log("Number of notes saved: "+localStorate.getItem("microNotes.notes.size"));
-	console.log("Number of trash saved: "+localStorate.getItem("microNotes.trash.size"));
+	localStorage.setItem("microNotes.trash.size", numTrash);
 }
 
-function addNote(text, trash) {
+function addNote(text, target, append) {
 	if($("#addNewLink .note").text() == "" && text == null) return false;
 	var note = $("#addNewLink").clone().removeAttr("id").removeAttr("style");
 	note.children("header,.add").remove();
@@ -71,10 +62,10 @@ function addNote(text, trash) {
 	
 	note.children(".note").removeAttr("contenteditable").html( text );
 
-	if(!trash)
-		$("#linkList").prepend(note);
+	if(!append)
+		$(target).prepend(note);
 	else
-		$("#trashList").prepend(note);
+		$(target).append(note);
 
 	$("#addNewLink .note").text("");
 	$("#addNewLink .top").click();
@@ -83,10 +74,9 @@ function addNote(text, trash) {
 function deleteNote(e) {
 	// Move the section from the list to the trash:
 	var section = $(e.target).closest("section");
-	localStorage.removeItem("microNotes.notes."+section.attr("rel"));
 	section.prependTo("#trashList");
 	// Check for more than 10:
-	if( $("#trashList").children().size() > 3) {
+	if( $("#trashList").children().size() > 10) {
 		$("#trashList").children("section:last").remove();
 		console.log("Overage!");
 	}

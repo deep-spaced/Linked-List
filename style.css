@@ -1,27 +1,31 @@
 body {
 	font-size: 16px;
 	background-color: #F2EFE9;
+	text-shadow: 0px 0px 2px rgba(10, 10, 10, 0.1);
 }
 a:link {
 	color: gray;
-
+}
+header {
+	font-size: 72px;
+	text-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1);
+	font-family: 'Reenie Beanie', arial, serif;
+	display: block;
+}
+section {
+	display:block;
 }
 #container {
 	margin: 0 auto 50px;
 	padding: 0 10px;
 	width: 600px;
 }
-
 #main {
 	-moz-box-shadow: 0 0 5px #91BDD9;
 	-webkit-box-shadow: 0 0 5px #91BDD9;
+	box-shadow: 0 0 5px #91BDD9;
+	border: 1px solid #91BDD9;
 }
-
-header {
-	font-size: 72px;
-	text-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1)
-}
-
 #addNewLink, #trashBin {
 	background-color: #D0C8B9;
 	height: 20px;
@@ -30,7 +34,6 @@ header {
 	border: 1px solid #CCC;
 	margin: 5px;
 	padding: 5px 10px;
-
 	border: 1px solid #aaa;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -50,12 +53,11 @@ header {
 	height: 150px;
 }
 .top {
-	font-size: 20px;
+	font-size: 28px;
 	text-align: right;
 	border-bottom: 1px solid #91BDD9;
 	cursor: pointer;
 }
-
 #linkList section, #trashBin section {
 	border-bottom: 1px dashed silver;
 	display: block;
@@ -63,7 +65,10 @@ header {
 #linkList section:first-child {
 	border-top: none;
 }
-
+#linkList .note:first-letter {
+	font-size: 34px;
+	font-family: 'Reenie Beanie', arial, serif;
+}
 .btn {
 	float:right;
 	border: 1px solid #aaa;
@@ -75,10 +80,11 @@ header {
 	width: 40px;
 }
 .delete {
-	background-color: red;
-	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#b3042f), to(#d1344e));
-	gradient(linear, 0% 0%, 0% 100%, from(#b3042f), to(#d1344e));
+	background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.31, rgb(217, 43, 43)), color-stop(0.66, rgb(250, 0, 71)));
 	display: none;
+}
+.add {
+	background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.31, rgb(43, 217, 78)), color-stop(0.66, rgb(0, 250, 58)));
 }
 #linkList section:hover .delete {
 	display: block;
@@ -87,7 +93,7 @@ header {
 	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 	gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 }
-
+:first-child
 
 .note {
 	margin:10px 50px 10px 5px;
@@ -112,4 +118,5 @@ footer {
 	position: fixed;
 	left: 5px;
 	bottom: -15px;
+	font-family: 'Reenie Beanie', arial, serif;
 }
