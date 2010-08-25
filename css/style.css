@@ -1,3 +1,10 @@
+/*
+** microNotes
+** Author: Andrew Anderson
+**
+** A quick and easy way to store notes, links, thoughts, and anything else that can be typed in a text box.
+*/
+
 body {
 	font-size: 16px;
 	background-color: #f9f5ec;
@@ -9,11 +16,16 @@ a:link {
 header {
 	font-size: 72px;
 	text-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1);
-	font-family: 'Reenie Beanie';
 	display: block;
 }
 section {
 	display:block;
+}
+footer {
+	font-size: 16px;
+	position: fixed;
+	left: 5px;
+	bottom: -15px;
 }
 #container {
 	margin: 0 auto 50px;
@@ -71,6 +83,9 @@ section {
 	font-family: arial, serif;
 	padding-left: 10px;
 }
+#linkList section:hover .delete {
+	display: block;
+}
 .btn {
 	float:right;
 	border: none;
@@ -100,9 +115,6 @@ section {
 	background-image:-moz-linear-gradient(top, #00b51b, #0e6600);
 	background-image:-webkit-gradient(linear,left top, left bottom,from(#00b51b),to(#0e6600));
 }
-#linkList section:hover .delete {
-	display: block;
-}
 .add {
 	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 	gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
@@ -128,12 +140,4 @@ section {
 [contenteditable]:hover {
 	outline: 1px dotted #ccc;
 	background-color: #FFF;
-}
-
-footer {
-	font-size: 16px;
-	position: fixed;
-	left: 5px;
-	bottom: -15px;
-	font-family: 'Reenie Beanie';
 }

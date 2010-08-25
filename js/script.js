@@ -1,3 +1,10 @@
+/*
+** microNotes
+** Author: Andrew Anderson
+**
+** A quick and easy way to store notes, links, thoughts, and anything else that can be typed in a text box.
+*/
+
 $(document).ready(function() {
 	loadNotes();
 
@@ -78,7 +85,6 @@ function deleteNote(e) {
 	// Check for more than 10:
 	if( $("#trashList").children().size() > 10) {
 		$("#trashList").children("section:last").remove();
-		console.log("Overage!");
 	}
 }
 
@@ -86,8 +92,3 @@ function convertUrls(text) {
 	var exp = new RegExp('[\"\'>]*\b(?:(?:https?|ftp|file)://|www\.|ftp\.)[-A-Z0-9+&@#/%=~_|$?!:,.]*[A-Z0-9+&@#/%=~_|$]');
 	return text.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
 }
-
-function flashRed(target) {
-	$()
-}
-
