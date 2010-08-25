@@ -1,7 +1,7 @@
 body {
 	font-size: 16px;
-	background-color: #F2EFE9;
-	text-shadow: 0px 0px 2px rgba(10, 10, 10, 0.1);
+	background-color: #f9f5ec;
+	font-family: Arial, sans-serif;
 }
 a:link {
 	color: gray;
@@ -9,7 +9,7 @@ a:link {
 header {
 	font-size: 72px;
 	text-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1);
-	font-family: 'Reenie Beanie', arial, serif;
+	font-family: 'Reenie Beanie';
 	display: block;
 }
 section {
@@ -28,7 +28,7 @@ section {
 }
 #addNewLink, #trashBin {
 	background-color: #D0C8B9;
-	height: 20px;
+	height: 25px;
 	overflow:hidden;
 	z-index: 5;
 	border: 1px solid #CCC;
@@ -51,6 +51,8 @@ section {
 #trashList {
 	overflow:auto;
 	height: 150px;
+	font-size: 12px;
+	text-shadow: none;
 }
 .top {
 	font-size: 28px;
@@ -62,29 +64,41 @@ section {
 	border-bottom: 1px dashed silver;
 	display: block;
 }
-#linkList section:first-child {
-	border-top: none;
+#linkList section:last-child {
+	border: none;
 }
-#linkList .note:first-letter {
-	font-size: 34px;
-	font-family: 'Reenie Beanie', arial, serif;
+#linkList .note {
+	font-family: arial, serif;
+	padding-left: 10px;
 }
 .btn {
 	float:right;
-	border: 1px solid #aaa;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
+	border: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	border-radius: 5px;
 	padding: 3px;
 	margin: -35px 2px 2px 2px;
 	width: 40px;
+	cursor: pointer;
+	color:#EEE;
+}
+.btn:hover {
+	color: #FFF;
 }
 .delete {
-	background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.31, rgb(217, 43, 43)), color-stop(0.66, rgb(250, 0, 71)));
 	display: none;
+	color:#CCC;
+	background-color:#b20000;
+	background-image:linear-gradient(top, #c00000, #9c0000);
+	background-image:-moz-linear-gradient(top, #c00000, #9c0000);
+	background-image:-webkit-gradient(linear,left top, left bottom,from(#c00000),to(#9c0000));
 }
 .add {
-	background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.31, rgb(43, 217, 78)), color-stop(0.66, rgb(0, 250, 58)));
+	background-color:#b20000;
+	background-image:linear-gradient(top, #00b51b, #0e6600);
+	background-image:-moz-linear-gradient(top, #00b51b, #0e6600);
+	background-image:-webkit-gradient(linear,left top, left bottom,from(#00b51b),to(#0e6600));
 }
 #linkList section:hover .delete {
 	display: block;
@@ -93,11 +107,9 @@ section {
 	-webkit-gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 	gradient(linear, 0% 0%, 0% 100%, from(#118f3f), to(#2cbd61));
 }
-:first-child
 
 .note {
 	margin:10px 50px 10px 5px;
-
 }
 #addNewLink .note {
 	height: 100px;
@@ -107,10 +119,15 @@ section {
 	color: #888;
 }
 [contenteditable] {
-  outline: 1px dotted #aaa;
+	outline: 1px dotted #aaa;
+	padding: 5px;
+}
+[contenteditable]:focus {
+	background-color: #FFF;
 }
 [contenteditable]:hover {
-  outline: 1px dotted #ccc;
+	outline: 1px dotted #ccc;
+	background-color: #FFF;
 }
 
 footer {
@@ -118,5 +135,5 @@ footer {
 	position: fixed;
 	left: 5px;
 	bottom: -15px;
-	font-family: 'Reenie Beanie', arial, serif;
+	font-family: 'Reenie Beanie';
 }

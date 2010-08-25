@@ -6,10 +6,9 @@ $(document).ready(function() {
 	$(".top").click(function() {
 		var parent = $(this).parent();
 		if(parent.css('height') == "175px") {
-			parent.animate({"height": "20px"});
+			parent.animate({"height": "25px"});
 		} else {
-			parent.animate({"height": "175px"});
-			if(parent.attr("id") == "addNewLink") $("#addNewLink .note").focus();
+			parent.animate({"height": "175px"}, "fast", null, function() {if(parent.attr("id") == "addNewLink") $("#addNewLink .note").focus();});
 		}
 	});
 
@@ -58,7 +57,7 @@ function addNote(text, target, append) {
 	note.children("header,.add").remove();
 
 	if(text == null)
-		text = convertUrls( $("#addNewLink .note").text() );
+		text = $.trim( convertUrls( $("#addNewLink .note").html() ) );
 	
 	note.children(".note").removeAttr("contenteditable").html( text );
 
@@ -84,7 +83,7 @@ function deleteNote(e) {
 
 function convertUrls(text) {
 	var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-	return text.replace(exp,"<a href='$1'>$1</a>"); 
+	return text.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
 }
 
 function flashRed(target) {
